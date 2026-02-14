@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url("background.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark overlay */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.container,
+.second-page {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px pink;
+  backdrop-filter: blur(5px);
+}
+
+/* Hide second page initially */
+.second-page {
+  display: none;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  text-shadow: 0 0 15px pink;
+}
+
+/* Buttons */
+.buttons button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: pink;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.buttons button:hover {
+  transform: scale(1.1);
+  background: hotpink;
+  color: white;
+}
+
+/* Image popup */
+.popup-image {
+  width: 300px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 40px hotpink;
+  transform: scale(0);
+  transition: 0.6s ease;
+}
+
+.popup-image.show {
+  transform: scale(1);
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: floatUp linear forwards;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
